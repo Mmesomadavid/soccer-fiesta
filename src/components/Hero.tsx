@@ -94,7 +94,7 @@ const Hero = () => {
 
         {/* Additional UI Elements */}
         <div className="absolute bottom-12 right-12 flex items-center space-x-4 text-sm opacity-60">
-          <span>Sign up to be a player</span>
+          <span>Get a chance to go pro</span>
           <div className="w-12 h-[1px] bg-white"></div>
         </div>
 
