@@ -13,7 +13,7 @@ const About = () => {
                 <br />
                 <span className="text-yellow-300">Get Scouted</span>
               </h2>
-              <p className="text-gray-300 text-lg max-w-xl">
+              <p className="text-gray-200 text-lg max-w-xl">
                 Soccer Fiesta provides a revolutionary platform for talented players 
                 to showcase their skills directly to professional clubs worldwide. 
                 Our innovative scouting system has helped numerous players achieve 
@@ -28,7 +28,7 @@ const About = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold">Upload Your Profile</h3>
-                  <p className="text-gray-400">Showcase your skills and statistics</p>
+                  <p className="text-gray-300">Showcase your skills and statistics</p>
                 </div>
               </div>
 
@@ -38,7 +38,7 @@ const About = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold">Get Noticed</h3>
-                  <p className="text-gray-400">Connect with scouts and clubs worldwide</p>
+                  <p className="text-gray-300">Connect with scouts and clubs worldwide</p>
                 </div>
               </div>
 
@@ -48,7 +48,7 @@ const About = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold">Start Your Journey</h3>
-                  <p className="text-gray-400">Begin your professional football career</p>
+                  <p className="text-gray-300">Begin your professional football career</p>
                 </div>
               </div>
             </div>
@@ -73,7 +73,7 @@ const About = () => {
                 </div>
                 <div>
                   <p className="text-sm font-semibold">Next Scouting Event</p>
-                  <p className="text-xs text-gray-300">Barcelona, Spain</p>
+                  <p className="text-xs text-gray-300">Coming Soon</p>
                 </div>
               </div>
             </div>
