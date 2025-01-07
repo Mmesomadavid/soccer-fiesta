@@ -1,14 +1,15 @@
 import { useState } from 'react'
-import { Menu, X, Facebook, Twitter, Instagram } from 'lucide-react'
-import heroImg from '../assets/no-bg2.png'
+import { Menu, X } from 'lucide-react'
+import heroImg from '../assets/throw-no-bg.png'
 
 const Hero = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <div className="relative min-h-screen bg-[#1a1a1a] text-white overflow-hidden">
+    <div className="relative min-h-screen bg-[#333333] text-white overflow-hidden">
       {/* Navigation and UI Elements */}
       <nav className="absolute top-0 left-0 right-0 z-50 p-6">
+        {/* Navigation content remains the same */}
         <div className="flex justify-between items-center">
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)} 
@@ -20,19 +21,6 @@ const Hero = () => {
               <Menu className="w-6 h-6" />
             )}
           </button>
-
-          {/* Social Media Links */}
-          <div className="absolute right-6 flex space-x-4">
-            <a href="#" className="hover:text-yellow-300 transition-colors">
-              <Facebook className="w-5 h-5" />
-            </a>
-            <a href="#" className="hover:text-yellow-300 transition-colors">
-              <Twitter className="w-5 h-5" />
-            </a>
-            <a href="#" className="hover:text-yellow-300 transition-colors">
-              <Instagram className="w-5 h-5" />
-            </a>
-          </div>
         </div>
 
         {/* Menu Overlay */}
@@ -83,18 +71,20 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Player Image */}
+        {/* Player Image with matching gradient background */}
         <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-[80%] md:w-[50%] h-[100%] z-10">
+          {/* Matching gradient background */}
+          <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-[140%] aspect-square bg-gradient-to-br from-green-400/20 via-yellow-300/20 to-red-600/20 rounded-full blur-3xl" />
           <img
             src={heroImg}
             alt="Soccer player performing bicycle kick"
-            className="w-full h-full object-contain object-center"
+            className="relative z-20 w-full h-full object-contain object-center"
           />
         </div>
 
         {/* Additional UI Elements */}
         <div className="absolute bottom-12 right-12 flex items-center space-x-4 text-sm opacity-60">
-          <span>Get a chance to go pro</span>
+          <span>Play Hard, Dream Big</span>
           <div className="w-12 h-[1px] bg-white"></div>
         </div>
 
@@ -104,11 +94,11 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Background Gradient */}
+      {/* Updated Background Gradients to match About section */}
       <div className="absolute inset-0 bg-gradient-to-tr from-black/80 via-transparent to-transparent z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-green-400/10 via-yellow-300/10 to-red-600/10 z-5"></div>
     </div>
   )
 }
 
 export default Hero
-
