@@ -19,9 +19,9 @@ export async function sendEmail(formData: FormData) {
     const weight = formData.get('weight');
     const preferredFoot = formData.get('preferredFoot');
     const preferredWing = formData.get('preferredWing');
-    const video = formData.get('video') as File;
+    // const video = formData.get('video') as File;
 
-    const { data, error } = await resend.emails.send({
+    const {  error } = await resend.emails.send({
       from: 'Soccer Fiesta <noreply@soccerfiesta.com>',
       to: 'chukwunoyelummesoma1@gmail.com',
       subject: 'New Player Registration',
