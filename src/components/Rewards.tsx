@@ -1,4 +1,5 @@
 import trophyAnimation from '../assets/trophy-animation.gif'
+import { Link } from 'react-router-dom'
 
 const Rewards = () => {
   return (
@@ -52,7 +53,9 @@ const Rewards = () => {
             Your journey to stardom begins here. Don't miss this once-in-a-lifetime opportunity!
           </p>
           <button className="px-8 py-4 bg-yellow-300 text-black rounded-full font-semibold text-lg hover:bg-yellow-400 transition-colors">
-            Register Now
+            <Link to="/register">
+              Register Now
+            </Link>
           </button>
         </div>
       </div>
