@@ -102,7 +102,15 @@ const Hero = () => {
                 transition={{ delay: 0.7 }}
                 className="relative z-20 text-red-600"
               >
-                FIESTA
+                FIESTA 
+              </motion.span>
+              <motion.span
+                initial={{ x: 50, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.7 }}
+                className="relative z-20 text-red-600"
+              >
+                the First 11
               </motion.span>
             </h1>
           </motion.div>
