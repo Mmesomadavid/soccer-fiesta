@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import aboutImg from '../assets/no-bg1.png'
 import { motion } from 'framer-motion'
+import aboutImg from '../assets/no-bg1.png'
 
 const About = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
@@ -27,12 +27,23 @@ const About = () => {
   ]
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-[#1a1a1a] py-24">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="min-h-screen relative overflow-hidden bg-[#1a1a1a] py-24"
+      id="about"
+    >
       <div className="absolute inset-0 bg-gradient-to-br from-green-600/10 via-yellow-500/10 to-red-600/10" />
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-8">
+          <motion.div
+            initial={{ x: -50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="space-y-8"
+          >
             <div>
               <h2 className="text-5xl md:text-7xl font-bold mb-6">
                 Ready to
@@ -64,22 +75,37 @@ const About = () => {
                     <p className="text-gray-300">{card.description}</p>
                   </div>
                   {hoveredCard === index && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-45deg] animate-shine" />
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                      initial={{ x: '-100%' }}
+                      animate={{ x: '100%' }}
+                      transition={{ repeat: Infinity, duration: 1, ease: 'linear' }}
+                    />
                   )}
                 </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Content */}
-          <div className="relative">
+          <motion.div
+            initial={{ x: 50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+            className="relative"
+          >
             <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-[140%] aspect-square bg-gradient-to-br from-green-400/20 via-yellow-300/20 to-red-600/20 rounded-full blur-3xl" />
             <img
               src={aboutImg}
               alt="Soccer player in action"
               className="relative z-10 w-full h-auto rounded-lg"
             />
-            <div className="absolute bottom-8 right-8 bg-white/10 backdrop-blur-md rounded-lg p-4 z-20 border border-white/20">
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.5 }}
+              className="absolute bottom-8 right-8 bg-white/10 backdrop-blur-md rounded-lg p-4 z-20 border border-white/20"
+            >
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-yellow-300 rounded-full flex items-center justify-center">
                   <span className="text-black font-bold">⚽</span>
@@ -89,12 +115,13 @@ const About = () => {
                   <p className="text-xs text-gray-300">Coming Soon</p>
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
 export default About
+
