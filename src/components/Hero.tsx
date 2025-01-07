@@ -117,7 +117,7 @@ const Hero = () => {
               to="/register"
               className="px-6 py-3 bg-white text-black rounded-full hover:bg-white/90 transition-colors"
             >
-              I am a Player
+              Register Now
             </Link>
           </motion.div>
         </div>
