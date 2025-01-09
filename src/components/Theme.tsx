@@ -1,4 +1,4 @@
-import imgBg from '../assets/soccer-ball.jpg'
+import imgBg from '../assets/the first eleven.jpg'
 
 const Theme = () => {
   return (

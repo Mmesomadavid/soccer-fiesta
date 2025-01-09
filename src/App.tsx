@@ -9,6 +9,7 @@ import Rewards from './components/Rewards';
 import Footer from './components/Footer';
 import Register from './pages/Register';
 import Contact from './pages/Contact';
+import MeetTheCoach from './components/MeetTheCoach';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
                 <Hero />
                 <About />
                 <Theme />
+                <MeetTheCoach />
                 <Program />
                 <Objectives />
                 <Rewards />

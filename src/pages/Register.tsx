@@ -238,7 +238,7 @@ const Register = () => {
                   name="preferredFoot"
                   value={formData.preferredFoot}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                  className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                   required
                 >
                   <option value="">Select Foot</option>
@@ -253,7 +253,7 @@ const Register = () => {
                   name="preferredWing"
                   value={formData.preferredWing}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                  className="w-full px-4 py-2 rounded-lg bg-black border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                   required
                 >
                   <option value="">Select Wing</option>

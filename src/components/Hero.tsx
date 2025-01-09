@@ -104,14 +104,14 @@ const Hero = () => {
               >
                 FIESTA 
               </motion.span> 
-              
+              { ' ' }
               <motion.span
                 initial={{ x: 50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: 0.7 }}
                 className="relative z-20 text-gray-100"
               >
-                 First 11
+                1st Eleven
               </motion.span>
             </h1>
           </motion.div>
