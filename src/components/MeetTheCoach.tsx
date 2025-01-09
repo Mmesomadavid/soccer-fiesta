@@ -22,7 +22,7 @@ const MeetTheCoach = () => {
               <h2 className="text-4xl md:text-5xl font-bold">
                 Meet the <span className="text-yellow-300">Visionary</span>
               </h2>
-              <p className="text-xl text-gray-400">
+              <p className="text-xl text-gray-200">
                 Amb Dayan Nzereogu, Creator of Soccer Fiesta
               </p>
             </div>
