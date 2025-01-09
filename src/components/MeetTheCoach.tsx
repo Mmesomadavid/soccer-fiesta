@@ -28,7 +28,7 @@ const MeetTheCoach = () => {
             </div>
 
             <div className="relative">
-              <Quote className="absolute -left-4 -top-4 w-8 h-8 text-yellow-300/20" />
+              <Quote className="absolute -left-4 -top-4 w-12 h-12 text-yellow-300/20" />
               <div className="space-y-6 text-gray-300 leading-relaxed">
                 <p>
                   The worn leather of the football felt familiar beneath my young hands, a comforting weight against my palm. Lagos, my playground, pulsed with the rhythm of life – the honking of car horns, the vibrant chatter of street vendors, and the echoing shouts of children playing.
@@ -40,7 +40,7 @@ const MeetTheCoach = () => {
                   Soccer Fiesta is my redemption, a testament to the belief that every dream deserves a chance to take flight. It is a beacon of hope for those who, like me, dared to dream big, only to face insurmountable obstacles.
                 </p>
               </div>
-              <Quote className="absolute -right-4 bottom-0 w-8 h-8 text-yellow-300/20 transform rotate-180" />
+              <Quote className="absolute -right-4 bottom-0 w-10 h-10 text-yellow-300/20 transform rotate-180" />
             </div>
 
             <div className="flex items-center space-x-4">
