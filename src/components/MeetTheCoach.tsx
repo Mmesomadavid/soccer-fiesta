@@ -116,7 +116,7 @@ const MeetTheCoach = () => {
               title: "Our Promise",
               description: "To provide a fair chance for every aspiring footballer to pursue their dreams of professional football."
             }
-          ].map((card, index) => (
+          ].map((card) => (
             <div
               key={card.title}
               className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300"
