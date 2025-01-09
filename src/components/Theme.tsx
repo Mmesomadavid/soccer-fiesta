@@ -19,16 +19,16 @@ const Theme = () => {
       {/* 3D Text Container */}
       <div className="relative h-full flex items-center justify-center">
         {/* First text layer - "behind" effect */}
-        <div className="absolute text-center transform -translate-y-8">
+        {/* <div className="absolute text-center transform -translate-y-8">
           <h2 className="text-[12vw] font-extrabold leading-none tracking-tighter opacity-70">
-            <span className="block text-red-500">
+            <span className="block text-red-100">
               PLAY HARD
             </span>
-            <span className="block text-green-500">
+            <span className="block text-green-100">
               DREAM BIG
             </span>
           </h2>
-        </div>
+        </div> */}
         
         {/* Ball image overlay - middle layer */}
         <div className="absolute w-full h-full flex items-center justify-center">
