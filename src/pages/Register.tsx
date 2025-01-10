@@ -54,13 +54,13 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#1a1a1a] flex">
+    <div className="min-h-screen bg-[#1a1a1a] flex flex-col lg:flex-row">
       {/* Left Panel */}
       <motion.div 
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.6 }}
-        className="hidden lg:block lg:w-1/2 relative overflow-hidden"
+        className="lg:w-1/2 relative overflow-hidden h-64 lg:h-auto"
       >
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-black/60 to-transparent z-10" />
@@ -80,7 +80,7 @@ const Register = () => {
         initial={{ x: 100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.6 }}
-        className="w-full lg:w-1/2 flex flex-col justify-center p-8 lg:p-16 bg-[#1a1a1a] overflow-y-auto"
+        className="w-full lg:w-1/2 flex flex-col justify-center p-4 sm:p-8 lg:p-16 bg-[#1a1a1a] overflow-y-auto"
       >
         <div className="max-w-md w-full mx-auto">
           <div className="text-center mb-8">
@@ -89,7 +89,7 @@ const Register = () => {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-1">First Name</label>
                 <input
@@ -155,7 +155,7 @@ const Register = () => {
                   required
                 />
               </div>
-              <div className="col-span-2">
+              <div className="col-span-full">
                 <label className="block text-sm font-medium text-gray-300 mb-1">Video of Yourself</label>
                 <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-dashed border-white/20 rounded-lg">
                   <div className="space-y-1 text-center">
@@ -177,7 +177,7 @@ const Register = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-span-2">
+              <div className="col-span-full">
                 <label className="block text-sm font-medium text-gray-300 mb-1">Why do you want to join Soccer Fiesta?</label>
                 <textarea
                   name="reason"
