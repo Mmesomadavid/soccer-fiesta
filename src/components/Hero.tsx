@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import heroImg from '../assets/throw-no-bg.png';
+import { VideoPlayer } from './videoPlayer';
 
 const Hero = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,6 +17,24 @@ const Hero = () => {
     { title: 'Rewards', href: '/#rewards' },
     { title: 'Contact', href: '/contact' },
   ];
+
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    
+    if (href === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (href.startsWith('/#')) {
+      const sectionId = href.replace('/#', '');
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.location.href = href;
+    }
+    
+    setIsMenuOpen(false);
+  };
 
   return (
     <div className="relative min-h-screen bg-[#333333] text-white overflow-hidden">
@@ -53,13 +72,13 @@ const Hero = () => {
                     exit={{ opacity: 0, y: 20 }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <Link
-                      to={item.href}
+                    <a
+                      href={item.href}
                       className="hover:text-yellow-300 transition-colors"
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={(e) => scrollToSection(e, item.href)}
                     >
                       {item.title}
-                    </Link>
+                    </a>
                   </motion.div>
                 ))}
               </div>
@@ -105,7 +124,7 @@ const Hero = () => {
               >
                 FIESTA 
               </motion.span> 
-              { ' ' }
+              {' '}
               <motion.span
                 initial={{ x: 50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
@@ -132,7 +151,7 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        {/* Player Image */}
+        {/* Player Image with Video Player */}
         <motion.div
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -145,6 +164,7 @@ const Hero = () => {
             alt="Soccer player performing bicycle kick"
             className="relative z-20 w-full h-full object-contain object-right-center transform scale-125"
           />
+          <VideoPlayer />
         </motion.div>
 
         {/* Additional UI Elements */}

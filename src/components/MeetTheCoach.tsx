@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import coachImg from '../assets/throw-bg.jpg';
 import { Quote } from 'lucide-react';
+import Founder from '../assets/founder.jpg';
+
 
 const MeetTheCoach = () => {
   return (
@@ -65,7 +66,7 @@ const MeetTheCoach = () => {
             <div className="relative z-10">
               <div className="relative rounded-2xl overflow-hidden">
                 <img
-                  src={coachImg}
+                  src={Founder}
                   alt="Amb Dayan Nzereogu"
                   className="w-full h-[600px] object-cover"
                 />
