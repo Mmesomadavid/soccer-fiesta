@@ -67,11 +67,10 @@ const MeetTheCoach = () => {
                 <img
                   src={Founder}
                   alt="Amb Dayan Nzereogu"
-                  className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover"
+                  className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               </div>
-            
             </div>
           </motion.div>
         </div>
@@ -113,3 +112,4 @@ const MeetTheCoach = () => {
 };
 
 export default MeetTheCoach;
+
