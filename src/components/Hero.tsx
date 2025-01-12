@@ -4,12 +4,14 @@ import { useState } from 'react';
 import heroImg from '../assets/throw-no-bg.png';
 import { VideoModal } from './videoPlayer';
 import { PlayButton } from './PlayButton';
+import HamburgerMenu from './HamburgerMenu';
 
 const Hero = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   return (
     <div className="relative min-h-screen bg-[#333333] text-white overflow-hidden">
+      <HamburgerMenu />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
