@@ -15,11 +15,11 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-yellow-300" />
-                <span className="text-sm">info@soccerfiesta.com</span>
+                <span className="text-sm">sccrfiesta@gmail.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="w-5 h-5 text-yellow-300" />
-                <span className="text-sm">Lagos, Nigeria</span>
+                <span className="text-sm">Imo State, Nigeria</span>
               </div>
             </div>
           </div>
@@ -35,15 +35,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Legal */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Legal</h3>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-sm hover:text-yellow-300 transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="text-sm hover:text-yellow-300 transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="text-sm hover:text-yellow-300 transition-colors">Accessibility</a></li>
-            </ul>
-          </div>
+      
 
           {/* Social Media */}
           <div>

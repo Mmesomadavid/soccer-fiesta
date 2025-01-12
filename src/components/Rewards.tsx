@@ -34,7 +34,7 @@ const Rewards = () => {
           >
             <div className="text-center">
               <h3 className="text-2xl sm:text-3xl font-bold mb-4">Grand Prize</h3>
-              <div className="text-4xl sm:text-6xl font-bold text-yellow-300 mb-4">₦1,000,000</div>
+              <div className="text-4xl sm:text-6xl font-bold text-yellow-300 mb-4">CASH PRIZE</div>
               <p className="text-lg sm:text-xl text-gray-300">For each player in the final team</p>
             </div>
             <img src={trophyAnimation} alt="trophy" draggable="false" className="h-[80px] w-[80px] sm:h-[100px] sm:w-[100px] mx-auto mt-4" />
