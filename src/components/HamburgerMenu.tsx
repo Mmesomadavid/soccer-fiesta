@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link as ScrollLink } from 'react-scroll';
+import {Link as ScrollLink} from "react-scroll"
 import { motion, AnimatePresence } from 'framer-motion';
 
 const HamburgerMenu = () => {
