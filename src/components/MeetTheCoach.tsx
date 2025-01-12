@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
-import Founder from '../assets/founder.jpg';
+import Founder from '../assets/founder.png';
 
 const MeetTheCoach = () => {
   return (
@@ -64,11 +64,11 @@ const MeetTheCoach = () => {
             {/* Main Image */}
             <div className="relative z-10">
               <div className="relative rounded-2xl overflow-hidden">
-                <img
-                  src={Founder}
-                  alt="Amb Dayan Nzereogu"
-                  className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover object-top"
-                />
+              <img
+                src={Founder}
+                alt="Amb Dayan Nzereogu"
+                className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[800px] object-cover object-top"
+              />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               </div>
             </div>
