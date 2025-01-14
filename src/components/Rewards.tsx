@@ -1,8 +1,13 @@
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import trophyAnimation from '../assets/trophy-animation.gif'
 import { Link } from 'react-router-dom'
+import { X } from 'lucide-react'
+import comingSoonImage from '../assets/coming-soon.jpg'
 
 const Rewards = () => {
+  const [showPopup, setShowPopup] = useState(false)
+
   return (
     <section className="min-h-screen bg-[#1a1a1a] py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden" id="rewards">
       <div className="absolute inset-0 bg-gradient-to-br from-green-600/10 via-yellow-500/10 to-red-600/10" />
@@ -37,7 +42,15 @@ const Rewards = () => {
               <div className="text-4xl sm:text-6xl font-bold text-yellow-300 mb-4">CASH PRIZE</div>
               <p className="text-lg sm:text-xl text-gray-300">For each player in the final team</p>
             </div>
-            <img src={trophyAnimation} alt="trophy" draggable="false" className="h-[80px] w-[80px] sm:h-[100px] sm:w-[100px] mx-auto mt-4" />
+            <img src={trophyAnimation || "/placeholder.svg"} alt="trophy" draggable="false" className="h-[80px] w-[80px] sm:h-[100px] sm:w-[100px] mx-auto mt-4" />
+            <div className="flex justify-center mt-4">
+              <button 
+                onClick={() => setShowPopup(true)}
+                className="bg-yellow-300 text-black hover:bg-yellow-400 transition-colors p-3 text-bold text-lg rounded-full"
+              >
+                Next Scouting Event
+              </button>
+            </div>
           </motion.div>
 
           {/* International Exposure */}
@@ -89,6 +102,53 @@ const Rewards = () => {
           </Link>
         </motion.div>
       </div>
+
+      {/* Popup */}
+      <AnimatePresence>
+        {showPopup && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+            onClick={() => setShowPopup(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              className="bg-gray-800 p-8 rounded-lg shadow-xl relative max-w-md w-full mx-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className="absolute top-2 right-2 text-gray-400 hover:text-white"
+                onClick={() => setShowPopup(false)}
+              >
+                <X className="h-6 w-6" />
+                <span className="sr-only">Close</span>
+              </button>
+              <div className="text-center">
+                <h3 className="text-2xl font-bold text-yellow-300 mb-4">Next Scouting Event</h3>
+                <img 
+                  src={comingSoonImage || "/placeholder.svg"} 
+                  alt="Coming Soon" 
+                  className="w-full h-40 object-cover rounded-lg mb-4"
+                />
+                <div className="bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 p-1 rounded-lg mb-4">
+                  <div className="bg-gray-800 rounded-lg p-4">
+                    <p className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500">
+                      Coming Soon
+                    </p>
+                  </div>
+                </div>
+                <p className="text-gray-300">
+                  Stay tuned for our next scouting event. We'll announce the details soon!
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }
