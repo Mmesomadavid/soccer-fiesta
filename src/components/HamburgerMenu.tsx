@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import {Link as ScrollLink} from "react-scroll"
+import { useState, useEffect } from 'react';
+import { Link as ScrollLink, Events } from "react-scroll";
 import { motion, AnimatePresence } from 'framer-motion';
 
 const HamburgerMenu = () => {
@@ -16,6 +16,18 @@ const HamburgerMenu = () => {
     { name: 'Objectives', to: 'objectives' },
     { name: 'Rewards', to: 'rewards' },
   ];
+
+  useEffect(() => {
+    // Register events for react-scroll
+    Events.scrollEvent.register('begin', () => {});
+    Events.scrollEvent.register('end', () => {});
+
+    return () => {
+      // Unregister events when component unmounts
+      Events.scrollEvent.remove('begin');
+      Events.scrollEvent.remove('end');
+    };
+  }, []);
 
   return (
     <div className="fixed top-4 right-4 z-50">
@@ -53,7 +65,9 @@ const HamburgerMenu = () => {
               <ScrollLink
                 key={item.to}
                 to={item.to}
+                spy={true}
                 smooth={true}
+                offset={-70}
                 duration={500}
                 className="block px-4 py-2 text-sm text-gray-100 hover:bg-gray-800 cursor-pointer"
                 onClick={() => {
@@ -71,3 +85,4 @@ const HamburgerMenu = () => {
 };
 
 export default HamburgerMenu;
+

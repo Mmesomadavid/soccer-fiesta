@@ -24,16 +24,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-sm hover:text-yellow-300 transition-colors">About Us</a></li>
-              <li><a href="#" className="text-sm hover:text-yellow-300 transition-colors">Program Stages</a></li>
-              <li><a href="#" className="text-sm hover:text-yellow-300 transition-colors">Register Now</a></li>
-              <li><a href="#" className="text-sm hover:text-yellow-300 transition-colors">Contact</a></li>
-            </ul>
-          </div>
 
       
 
