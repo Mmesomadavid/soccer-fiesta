@@ -5,7 +5,13 @@ import Rita from '../assets/Rita.png';
 
 const MeetTheCoach = () => {
   return (
-    <section className="min-h-screen bg-[#1a1a1a] py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden">
+    <motion.section 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="min-h-screen bg-[#1a1a1a] py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden"
+      id="meet-the-coach"
+    >
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-green-600/10 via-yellow-500/10 to-red-600/10" />
       
@@ -68,8 +74,7 @@ const MeetTheCoach = () => {
               <div className="relative rounded-2xl overflow-hidden">
                 <img
                   src={Founder || "/placeholder.svg"}
-                  alt="Amb Dayan Nzere
-ogu"
+                  alt="Amb Dayan Nzereogu"
                   className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[800px] object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -96,7 +101,7 @@ ogu"
             <div className="relative z-10">
               <div className="relative rounded-2xl overflow-hidden">
                 <img
-                  src={Rita} //{RitaNwadike || "/placeholder.svg"}
+                  src={Rita || "/placeholder.svg"}
                   alt="Rita Nwadike"
                   className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[800px] object-cover object-top"
                 />
@@ -177,7 +182,7 @@ ogu"
           ))}
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
