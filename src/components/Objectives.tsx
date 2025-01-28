@@ -20,7 +20,7 @@ const objectives = [
   {
     icon: Database,
     title: "Comprehensive Database",
-    description: "Build extensive records of Nigerian footballers",
+    description: "Build extensive records of Africann footballers",
   },
 ]
 
@@ -92,7 +92,7 @@ const Objectives = () => {
             Aims & <span className="text-green-400">Objectives</span>
           </h2>
           <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
-            Our mission is to revolutionize football talent discovery in Nigeria
+            Our mission is to revolutionize football talent discovery in Africa
           </p>
         </div>
 

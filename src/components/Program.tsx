@@ -24,7 +24,7 @@ const stages = [
   {
     icon: Gamepad2,
     title: "Friendly Games",
-    description: "Matches with clubs in Nigeria, Africa, Europe, and America",
+    description: "Matches with clubs in Africa, Europe, and America",
     color: "bg-blue-500",
   },
 ];

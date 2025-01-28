@@ -51,10 +51,10 @@ const About = () => {
                 <span className="text-yellow-300">Get Scouted</span>
               </h2>
               <p className="text-gray-200 text-base lg:text-lg max-w-xl mb-4 lg:mb-6">
-                Soccer Fiesta: The First Eleven (Talent Go Pro) is a groundbreaking platform designed to revolutionize football talent discovery in Nigeria. We provide a unique opportunity for aspiring footballers to showcase their skills, connect with professional clubs, and turn their dreams into reality.
+                Soccer Fiesta: The First Eleven (Talent Go Pro) is a groundbreaking platform designed to revolutionize football talent discovery in Africa. We provide a unique opportunity for aspiring footballers to showcase their skills, connect with professional clubs, and turn their dreams into reality.
               </p>
               <p className="text-gray-200 text-base lg:text-lg max-w-xl">
-                Our innovative scouting system combines cutting-edge technology, expert evaluation, and nationwide exposure to help talented players bridge the gap between grassroots football and professional opportunities. Join us on this exciting journey to shape the future of Nigerian football!
+                Our innovative scouting system combines cutting-edge technology, expert evaluation, and nationwide exposure to help talented players bridge the gap between grassroots football and professional opportunities. Join us on this exciting journey to shape the future of African football!
               </p>
             </div>
 

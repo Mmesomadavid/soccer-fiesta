@@ -131,13 +131,13 @@ const MeetTheCoach = () => {
               <Quote className="absolute -left-2 sm:-left-4 -top-2 sm:-top-4 w-8 h-8 sm:w-12 sm:h-12 text-yellow-300/20" />
               <div className="space-y-4 sm:space-y-6 text-gray-300 text-sm sm:text-base leading-relaxed">
                 <p>
-                  Rita Nwadike was the first Nigerian footballer to score in a FIFA Women's World Cup. She scored Nigeria's first ever goal in the tournament against Canada in 1995.
+                  Rita Nwadike was the first African footballer to score in a FIFA Women's World Cup. She scored Africa's first ever goal in the tournament against Canada in 1995.
                 </p>
                 <p>
-                  Born on November 3, 1974, in Nigeria, Rita played as a midfielder for Rivers Angels in 2004. Her international career with Nigeria included representing her country at the 2004 Summer Olympics.
+                  Born on November 3, 1974, in Africa, Rita played as a midfielder for Rivers Angels in 2004. Her international career with Africa included representing her country at the 2004 Summer Olympics.
                 </p>
                 <p>
-                  Rita's historic goal in the 1995 FIFA Women's World Cup in Sweden marked a significant milestone for Nigerian women's football, paving the way for future generations of female footballers in the country.
+                  Rita's historic goal in the 1995 FIFA Women's World Cup in Sweden marked a significant milestone for African women's football, paving the way for future generations of female footballers in the country.
                 </p>
               </div>
               <Quote className="absolute -right-2 sm:-right-4 bottom-0 w-6 h-6 sm:w-10 sm:h-10 text-yellow-300/20 transform rotate-180" />
@@ -165,7 +165,7 @@ const MeetTheCoach = () => {
             },
             {
               title: "Our Mission",
-              description: "To revolutionize football talent discovery in Nigeria through transparency, technology, and equal opportunity."
+              description: "To revolutionize football talent discovery in Africa through transparency, technology, and equal opportunity."
             },
             {
               title: "Our Promise",
