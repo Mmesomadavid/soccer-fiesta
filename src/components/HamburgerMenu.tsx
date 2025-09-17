@@ -1,31 +1,30 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { Link as ScrollLink, Events } from "react-scroll";
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
+
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  // Sections for in-page scrolling
   const menuItems = [
-    { name: 'Home', to: 'hero' },
-    { name: 'About', to: 'about' },
-    { name: 'Theme', to: 'theme' },
-    { name: 'Meet the Coach', to: 'meet-the-coach' },
-    { name: 'Program', to: 'program' },
-    { name: 'Objectives', to: 'objectives' },
-    { name: 'Rewards', to: 'rewards' },
+    { name: "Home", to: "hero" },
+    { name: "About", to: "about" },
+    { name: "Theme", to: "theme" },
+    { name: "Meet the Coach", to: "meet-the-coach" },
+    { name: "Program", to: "program" },
+    { name: "Objectives", to: "objectives" },
+    { name: "Rewards", to: "rewards" },
   ];
 
   useEffect(() => {
-    // Register events for react-scroll
-    Events.scrollEvent.register('begin', () => {});
-    Events.scrollEvent.register('end', () => {});
-
+    Events.scrollEvent.register("begin", () => {});
+    Events.scrollEvent.register("end", () => {});
     return () => {
-      // Unregister events when component unmounts
-      Events.scrollEvent.remove('begin');
-      Events.scrollEvent.remove('end');
+      Events.scrollEvent.remove("begin");
+      Events.scrollEvent.remove("end");
     };
   }, []);
 
@@ -61,6 +60,7 @@ const HamburgerMenu = () => {
             transition={{ duration: 0.2 }}
             className="absolute top-full right-0 mt-2 w-48 bg-gray-900 rounded-md shadow-lg py-1"
           >
+            {/* Scroll-to-section links */}
             {menuItems.map((item) => (
               <ScrollLink
                 key={item.to}
@@ -70,13 +70,20 @@ const HamburgerMenu = () => {
                 offset={-70}
                 duration={500}
                 className="block px-4 py-2 text-sm text-gray-100 hover:bg-gray-800 cursor-pointer"
-                onClick={() => {
-                  toggleMenu();
-                }}
+                onClick={toggleMenu}
               >
                 {item.name}
               </ScrollLink>
             ))}
+
+            {/* NEW page navigation link */}
+            <Link
+              to="/street-soccer"
+              className="block px-4 py-2 text-sm text-gray-100 hover:bg-gray-800"
+              onClick={toggleMenu}
+            >
+              Street Soccer
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>
@@ -85,4 +92,3 @@ const HamburgerMenu = () => {
 };
 
 export default HamburgerMenu;
-

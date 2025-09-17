@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import Theme from './components/Theme';
@@ -10,6 +11,7 @@ import Footer from './components/Footer';
 import Register from './pages/Register';
 import Contact from './pages/Contact';
 import MeetTheCoach from './components/MeetTheCoach';
+import StreetSoccer from './components/StreetSoccer';
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
           <Routes>
             <Route path="/" element={
               <>
+                <Header />
                 <Hero />
                 <About />
                 <Theme />
@@ -26,6 +29,7 @@ function App() {
                 <Program />
                 <Objectives />
                 <Rewards />
+                <StreetSoccer />
                 <Footer />
               </>
             } />

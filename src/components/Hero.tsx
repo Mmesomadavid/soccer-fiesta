@@ -1,120 +1,61 @@
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { useState } from 'react';
-import heroImg from '../assets/throw-no-bg.png';
-import { VideoModal } from './videoPlayer';
-import { PlayButton } from './PlayButton';
-import HamburgerMenu from './HamburgerMenu';
+"use client"
+
+import { useEffect, useState } from "react"
+import kickBallImg from "../assets/kick-ball.png"
 
 const Hero = () => {
-  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [offsetY, setOffsetY] = useState(0)
+
+  useEffect(() => {
+    const handleScroll = () => setOffsetY(window.scrollY)
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
-    <div className="relative min-h-screen bg-[#333333] text-white overflow-hidden">
-      <HamburgerMenu />
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="relative h-screen flex flex-col lg:flex-row items-center justify-center lg:justify-between px-4 lg:px-12"
-      >
-        <div className="relative z-20 text-center lg:text-left mb-8 lg:mb-0">
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="mb-6 lg:mb-10"
-          >
-            <div className="flex flex-wrap justify-center lg:justify-start items-center space-x-2 lg:space-x-4 mb-4 opacity-80">
-              <span className="text-xs lg:text-sm uppercase tracking-wider">Introducing</span>
-              <span className="text-xs lg:text-sm uppercase tracking-wider">Soccer</span>
-              <span className="text-xs lg:text-sm uppercase tracking-wider">Fiesta</span>
-            </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-bold leading-none tracking-tighter">
-              <motion.span
-                initial={{ x: -50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.5 }}
-                className="relative z-20 text-yellow-300 block lg:inline"
-              >
-                SOCC<span className="text-green-400">ER</span>
-              </motion.span>
-              <br className="lg:hidden" />
-              <motion.span
-                initial={{ x: 50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.7 }}
-                className="relative z-20 text-red-600 block lg:inline"
-              >
-                FIESTA
-              </motion.span>{' '}
-              <motion.span
-                initial={{ x: 50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.7 }}
-                className="relative z-20 text-gray-100 block lg:inline"
-              >
-                1st Eleven
-              </motion.span>
-            </h1>
-          </motion.div>
+    <section
+      // taller than a single viewport
+      className="relative min-h-[120vh] overflow-hidden bg-white"
+    >
+      {/* Horizontal “mountain-style” geometric background */}
+      <div className="absolute inset-0">
+        <div
+          className="absolute inset-0 bg-red-700"
+          style={{
+            clipPath:
+              "polygon(0 60%, 20% 55%, 40% 65%, 60% 50%, 80% 62%, 100% 55%, 100% 100%, 0 100%)",
+          }}
+        />
+      </div>
 
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.9 }}
-            className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4"
-          >
-            <Link
-              to="/register"
-              className="px-6 py-3 bg-white text-black rounded-full hover:bg-white/90 transition-colors w-full sm:w-auto text-center"
-            >
-              Register Now
-            </Link>
-            <PlayButton onClick={() => setIsVideoModalOpen(true)} />
-          </motion.div>
+      {/* Wide FOOTBALL text behind image */}
+      <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+        <h1 className="text-[10rem] lg:text-[14rem] xl:text-[18rem] font-black leading-none tracking-[-0.05em] text-yellow-500 opacity-80 uppercase">
+          football
+        </h1>
+      </div>
+
+      {/* Foreground content */}
+      <div className="relative z-20 flex flex-col justify-between min-h-[110vh] px-6 lg:px-12">
+        <div className="flex flex-1 items-center justify-center">
+          <img
+            src={kickBallImg}
+            alt="Footballer performing bicycle kick"
+            className="w-full h-auto max-w-md lg:max-w-lg xl:max-w-xl object-contain will-change-transform"
+            style={{ transform: `translateY(${offsetY * 0.3}px)` }}
+            draggable="false"
+          />
         </div>
 
-        <motion.div
-          initial={{ x: 100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-          className="relative w-full lg:w-1/2 h-[50vh] lg:h-[90vh] mt-8 lg:mt-0"
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-green-400/20 via-yellow-300/20 to-red-600/20 rounded-full blur-3xl" />
-          <img
-            src={heroImg}
-            alt="Soccer player performing bicycle kick"
-            className="relative z-20 w-full h-full object-contain object-center lg:object-right-center transform scale-110 lg:scale-125"
-          />
-        </motion.div>
+        {/* Play button at the bottom */}
+        <div className="flex justify-center mb-16">
+          <button className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center shadow-lg hover:bg-red-700 transition">
+            <div className="w-0 h-0 border-l-[20px] border-l-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent ml-1" />
+          </button>
+        </div>
+      </div>
+    </section>
+  )
+}
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.1 }}
-          className="absolute bottom-4 lg:bottom-12 right-4 lg:right-12 flex items-center space-x-2 lg:space-x-4 text-xs lg:text-sm opacity-60"
-        >
-          <span>Play Hard, Dream Big</span>
-          <div className="w-8 lg:w-12 h-[1px] bg-white"></div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.3 }}
-          className="absolute left-4 lg:left-6 bottom-12 lg:bottom-24 text-[10px] lg:text-xs opacity-40 writing-vertical"
-        >
-          © 2024 Soccer Fiesta
-        </motion.div>
-      </motion.div>
-
-      <div className="absolute inset-0 bg-gradient-to-tr from-black/80 via-transparent to-transparent z-10"></div>
-      <div className="absolute inset-0 bg-gradient-to-br from-green-400/10 via-yellow-300/10 to-red-600/10 z-5"></div>
-
-      <VideoModal isOpen={isVideoModalOpen} onClose={() => setIsVideoModalOpen(false)} />
-    </div>
-  );
-};
-
-export default Hero;
-
+export default Hero
