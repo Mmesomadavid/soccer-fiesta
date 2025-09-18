@@ -54,16 +54,15 @@ const Hero = () => {
             <Link to="/street-soccer" className="text-white/80 hover:text-white transition-colors text-sm lg:text-base">
               Street Soccer
             </Link>
-            <Link to="/contact" className="text-white/80 hover:text-white transition-colors text-sm lg:text-base">
-              Contact Us
-            </Link>
           </div>
 
           {/* Desktop CTA Button */}
           <div className="hidden md:block">
-            <Button className="bg-lime-400 text-black hover:bg-lime-300 font-semibold px-4 lg:px-6 text-sm lg:text-base">
-              Be a True Fan
-            </Button>
+            <Link to="/register">
+              <Button className="bg-lime-400 text-black hover:bg-lime-300 font-semibold px-4 lg:px-6 text-sm lg:text-base">
+                Join Soccer Fiesta
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile CTA Button */}
