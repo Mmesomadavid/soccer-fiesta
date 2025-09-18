@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { motion } from "framer-motion"
 import { useState } from "react"
 import { Play, Users, Trophy, Target, Clock } from "lucide-react"
@@ -58,11 +57,7 @@ const StreetSoccer = () => {
 
   const rules = [
     { icon: Users, title: "The Teams", desc: "3 players on pitch, no goalkeepers. Two subs allowed anytime." },
-    {
-      icon: Target,
-      title: "The Playing Area",
-      desc: "Any flat surface (asphalt, concrete). Pitch ~15–20m long. Small goals or cones.",
-    },
+    { icon: Target, title: "The Playing Area", desc: "Any flat surface (asphalt, concrete). Pitch ~15–20m long. Small goals or cones." },
     { icon: Play, title: "The Ball", desc: "Durable street ball size 4 or 5." },
     { icon: Clock, title: "Game Duration", desc: "10–15 mins per half or first to 5 goals. Continuous clock." },
     { icon: Trophy, title: "Winning", desc: "Most goals win. Tie → sudden death first goal wins." },
@@ -70,12 +65,13 @@ const StreetSoccer = () => {
 
   return (
     <div className="bg-slate-900 text-white min-h-screen">
+      {/* HERO SECTION */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none"
           style={{ backgroundImage: "url(/street-soccer-hero.jpg)" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-blue-800/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-blue-800/70 to-transparent pointer-events-none" />
 
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -96,7 +92,7 @@ const StreetSoccer = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 1 }}
-            className="text-6xl md:text-8xl font-black mb-8 leading-tight"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight"
           >
             STREET
             <br />
@@ -107,7 +103,7 @@ const StreetSoccer = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="text-xl md:text-2xl mb-12 text-blue-100 font-light max-w-3xl mx-auto"
+            className="text-lg sm:text-xl md:text-2xl mb-12 text-blue-100 font-light max-w-3xl mx-auto"
           >
             REP YOUR STREET • UNLEASH YOUR FIRE • MAKE YOUR MARK
           </motion.p>
@@ -127,33 +123,20 @@ const StreetSoccer = () => {
           </motion.div>
         </motion.div>
 
+        {/* Decorative Circles */}
         <motion.div
-          animate={{
-            y: [0, -20, 0],
-            rotate: [0, 5, 0],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-          className="absolute top-20 right-20 w-16 h-16 bg-lime-400 rounded-full opacity-20"
+          animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-20 right-20 w-16 h-16 bg-lime-400 rounded-full opacity-20 pointer-events-none"
         />
         <motion.div
-          animate={{
-            y: [0, 30, 0],
-            rotate: [0, -10, 0],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-          className="absolute bottom-32 left-16 w-24 h-24 bg-blue-400 rounded-full opacity-15"
+          animate={{ y: [0, 30, 0], rotate: [0, -10, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="absolute bottom-32 left-16 w-24 h-24 bg-blue-400 rounded-full opacity-15 pointer-events-none"
         />
       </section>
 
+      {/* STORY SECTION */}
       <section className="py-20 bg-gradient-to-b from-slate-900 to-slate-800">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -164,27 +147,22 @@ const StreetSoccer = () => {
             className="grid lg:grid-cols-2 gap-16 items-center"
           >
             <motion.div variants={itemVariants} className="space-y-8">
-              <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-blue-400">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-blue-400">
                 FROM THE STREETS TO THE WORLD STAGE
               </h2>
 
-              <div className="space-y-6 text-lg text-blue-100 leading-relaxed">
+              <div className="space-y-6 text-lg sm:text-xl text-blue-100 leading-relaxed">
                 <p>
-                  I want you to close your eyes for a moment and picture a dusty street, a makeshift goal, and a
-                  worn-out football. For me, that image is not just a memory; it's my childhood.
+                  I want you to close your eyes for a moment and picture a dusty street, a makeshift goal, and a worn-out football. For me, that image is not just a memory; it's my childhood.
                 </p>
                 <p>
-                  Growing up, like every other African boy with dreams of playing professionally, I started on the
-                  street. We didn't need fancy stadiums or expensive coaches. We organized the games in our own little
-                  ways…
+                  Growing up, like every other African boy with dreams of playing professionally, I started on the street. We didn't need fancy stadiums or expensive coaches. We organized the games in our own little ways…
                 </p>
                 <p>
-                  Today, I still see young boys and girls playing with that same fire… They are the true heartbeat of
-                  the game. And they deserve a platform.
+                  Today, I still see young boys and girls playing with that same fire… They are the true heartbeat of the game. And they deserve a platform.
                 </p>
                 <p className="text-lime-400 font-semibold">
-                  That's why I'm introducing 3-a-side Street Football and our rallying cry: REP YOUR STREET. We're
-                  creating a bridge from the streets to the world stage.
+                  That's why I'm introducing 3-a-side Street Football and our rallying cry: REP YOUR STREET. We're creating a bridge from the streets to the world stage.
                 </p>
               </div>
             </motion.div>
@@ -195,12 +173,13 @@ const StreetSoccer = () => {
                 alt="Street soccer training"
                 className="rounded-2xl shadow-2xl"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 to-transparent rounded-2xl" />
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 to-transparent rounded-2xl pointer-events-none" />
             </motion.div>
           </motion.div>
         </div>
       </section>
 
+      {/* RULES SECTION */}
       <section className="py-20 bg-slate-800">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
@@ -210,10 +189,10 @@ const StreetSoccer = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-blue-400">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-blue-400">
               RULES OF THE GAME
             </h2>
-            <p className="text-xl text-blue-200 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-blue-200 max-w-3xl mx-auto">
               Simple rules, maximum intensity. This is street football at its purest form.
             </p>
           </motion.div>
@@ -237,56 +216,10 @@ const StreetSoccer = () => {
               </motion.div>
             ))}
           </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="mt-20 grid md:grid-cols-3 gap-8"
-          >
-            <div className="relative group overflow-hidden rounded-2xl">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSElAg-xBZDaLMWUXHU7yrBJcyu9LxlCwItKg&s"
-                alt="Street soccer skills"
-                className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent" />
-              <div className="absolute bottom-4 left-4 text-white">
-                <h4 className="font-bold text-lg">SKILL DEVELOPMENT</h4>
-                <p className="text-blue-200">Master the fundamentals</p>
-              </div>
-            </div>
-
-            <div className="relative group overflow-hidden rounded-2xl">
-              <img
-                src="https://i.guim.co.uk/img/media/af4d2b56680f1497e2fb21c0689e50395736905c/0_0_1949_1299/master/1949.jpg?width=700&quality=85&auto=format&fit=max&s=1ef1063e1fa3ba7715c8fb05f49774c8"
-                alt="Street soccer team"
-                className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent" />
-              <div className="absolute bottom-4 left-4 text-white">
-                <h4 className="font-bold text-lg">TEAM BUILDING</h4>
-                <p className="text-blue-200">Unity through football</p>
-              </div>
-            </div>
-
-            <div className="relative group overflow-hidden rounded-2xl">
-              <img
-                src="https://plus.unsplash.com/premium_photo-1685303469251-4ee0ea014bb3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8YWZyaWNhbiUyMGZvb3RiYWxsZXJ8ZW58MHx8MHx8fDA%3D"
-                alt="Street soccer action"
-                className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent" />
-              <div className="absolute bottom-4 left-4 text-white">
-                <h4 className="font-bold text-lg">GAME TIME</h4>
-                <p className="text-blue-200">Where legends are born</p>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </section>
 
+      {/* JOIN FORM SECTION */}
       <section className="py-20 bg-gradient-to-b from-slate-800 to-slate-900">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
@@ -296,10 +229,10 @@ const StreetSoccer = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h3 className="text-4xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-blue-400">
+            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-blue-400">
               JOIN THE REVOLUTION
             </h3>
-            <p className="text-xl text-blue-200">Assemble your team. Get your boots ready. Rep your street.</p>
+            <p className="text-lg sm:text-xl text-blue-200">Assemble your team. Get your boots ready. Rep your street.</p>
           </motion.div>
 
           <motion.form
@@ -310,7 +243,7 @@ const StreetSoccer = () => {
             onSubmit={handleSubmit}
             className="space-y-8 bg-slate-700/30 backdrop-blur-sm p-8 md:p-12 rounded-3xl border border-blue-500/20"
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <input
                 type="text"
                 name="firstName"
@@ -358,7 +291,7 @@ const StreetSoccer = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  className="grid grid-cols-1 md:grid-cols-4 gap-4 p-6 bg-slate-600/20 rounded-2xl border border-blue-500/10"
+                  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-6 bg-slate-600/20 rounded-2xl border border-blue-500/10"
                 >
                   <input
                     type="text"
