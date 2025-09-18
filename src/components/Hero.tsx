@@ -1,79 +1,301 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import kickBallImg from "../assets/kick-ball.png"
-import myVideo from "../assets/vid/soccer-fiest-vid.mp4"
+import { Button } from "./ui/button"
+import { Play, Menu, X } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Link } from "react-router-dom"
+import { useState } from "react"
+import Logo from "./logo"
+import heroImg from "../assets/kick-ball.png"
+import heroVid from "../assets/vid/soccer-fiest-vid.mp4"
 
 const Hero = () => {
-  const [offsetY, setOffsetY] = useState(0)
-  const [showVideo, setShowVideo] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => setOffsetY(window.scrollY)
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
 
   return (
-    <section className="relative min-h-[120vh] overflow-hidden bg-white">
-      {/* Geometric background */}
-      <div className="absolute inset-0">
-        <div
-          className="absolute inset-0 bg-red-700"
-          style={{
-            clipPath:
-              "polygon(0 60%, 20% 55%, 40% 65%, 60% 50%, 80% 62%, 100% 55%, 100% 100%, 0 100%)",
-          }}
-        />
-      </div>
+    <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 overflow-hidden">
+      {/* Stadium Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
+        style={{
+          backgroundImage: `url('/football-stadium-at-night-with-bright-lights-and-c.jpg')`,
+        }}
+      />
 
-      {/* Large FOOTBALL text */}
-      <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-        <h1 className="text-[10rem] lg:text-[14rem] xl:text-[18rem] font-black leading-none tracking-[-0.05em] text-yellow-500 opacity-80 uppercase">
-          football
-        </h1>
-      </div>
-
-      {/* Foreground content */}
-      <div className="relative z-20 flex flex-col justify-between min-h-[110vh] px-6 lg:px-12">
-        <div className="flex flex-1 items-center justify-center relative">
-          <img
-            src={kickBallImg}
-            alt="Footballer performing bicycle kick"
-            className="w-full h-auto max-w-md lg:max-w-lg xl:max-w-xl object-contain will-change-transform"
-            style={{ transform: `translateY(${offsetY * 0.3}px)` }}
-            draggable="false"
-          />
-          {/* Play button now positioned over the image */}
-          <button
-            onClick={() => setShowVideo(true)}
-            className="absolute bottom-10 z-30 w-20 h-20 bg-red-600 rounded-full flex items-center justify-center shadow-lg hover:bg-red-700 transition"
+      {/* Header Navigation */}
+      <motion.header
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="relative z-20 w-full"
+      >
+        <nav className="flex justify-between items-center px-4 md:px-8 py-6">
+          {/* Mobile Menu Button */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="text-white hover:bg-white/10 md:hidden"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            <div className="w-0 h-0 border-l-[20px] border-l-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent ml-1" />
-          </button>
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </Button>
+
+          {/* Logo - Always visible */}
+          <div className="flex-shrink-0">
+            <Logo />
+          </div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-6 lg:gap-8">
+            <Link to="/" className="text-white/80 hover:text-white transition-colors text-sm lg:text-base">
+              Homepage
+            </Link>
+            <Link to="/schedule" className="text-white/80 hover:text-white transition-colors text-sm lg:text-base">
+              Match Schedule
+            </Link>
+            <Link to="/contact" className="text-white/80 hover:text-white transition-colors text-sm lg:text-base">
+              Contact Us
+            </Link>
+          </div>
+
+          {/* Desktop CTA Button */}
+          <div className="hidden md:block">
+            <Button className="bg-lime-400 text-black hover:bg-lime-300 font-semibold px-4 lg:px-6 text-sm lg:text-base">
+              Be a True Fan
+            </Button>
+          </div>
+
+          {/* Mobile CTA Button */}
+          <div className="md:hidden">
+            <Button className="bg-lime-400 text-black hover:bg-lime-300 font-semibold px-3 py-2 text-xs">Join</Button>
+          </div>
+        </nav>
+
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="absolute top-full left-0 right-0 bg-slate-900/95 backdrop-blur-md border-t border-white/10 md:hidden z-30"
+            >
+              <div className="px-4 py-6 space-y-4">
+                <Link
+                  to="/"
+                  className="block text-white hover:text-lime-400 transition-colors py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Homepage
+                </Link>
+                <Link
+                  to="/schedule"
+                  className="block text-white hover:text-lime-400 transition-colors py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Match Schedule
+                </Link>
+                <Link
+                  to="/contact"
+                  className="block text-white hover:text-lime-400 transition-colors py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.header>
+
+      {/* Main Hero Content */}
+      <div className="relative z-10 flex items-center justify-center min-h-[80vh] px-4 md:px-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Left Content */}
+          <motion.div
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="text-center lg:text-left"
+          >
+            <motion.h1
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight mb-6 md:mb-8"
+            >
+              UNLEASHING THE <span className="text-lime-400">FIRE</span> OF{" "}
+              <span className="text-blue-400">FOOTBALL</span>
+            </motion.h1>
+
+            {/* Professional Coach Section */}
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              className="flex flex-col sm:flex-row items-center gap-4 mb-6 justify-center lg:justify-start"
+            >
+              <div className="flex -space-x-2">
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 border-2 border-white"></div>
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-r from-green-500 to-blue-500 border-2 border-white"></div>
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-r from-orange-500 to-red-500 border-2 border-white"></div>
+              </div>
+              <div className="text-center sm:text-left">
+                <div className="flex items-center gap-2 justify-center sm:justify-start">
+                  <span className="text-lime-400 text-xl md:text-2xl">5+</span>
+                  <span className="text-white font-semibold text-sm md:text-base">Professional Coach</span>
+                </div>
+                <p className="text-white/70 text-xs md:text-sm max-w-xs">
+                  With years of experience, our player brings a wealth of knowledge, strategy, and leadership
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Description */}
+            <motion.p
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
+              className="text-white/80 text-base md:text-lg mb-6 md:mb-8 max-w-lg mx-auto lg:mx-0"
+            >
+              Every match, every goal, every moment ignites a fire that burns in the hearts of our players and fans
+              alike.
+            </motion.p>
+
+            {/* CTA Button */}
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1.1 }}
+            >
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 md:px-8 py-2 md:py-3 text-base md:text-lg font-semibold rounded-lg">
+                Discover More
+              </Button>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Content - Player Image */}
+          <motion.div
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="relative flex justify-center lg:justify-end mt-8 lg:mt-0"
+          >
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.8, delay: 1.3 }}
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"
+            >
+              <Button
+                size="icon"
+                className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-lime-400 hover:bg-lime-300 text-black shadow-2xl"
+                onClick={() => setIsVideoModalOpen(true)}
+              >
+                <Play className="w-6 h-6 md:w-8 md:h-8 ml-1" fill="currentColor" />
+              </Button>
+            </motion.div>
+
+            {/* Player Image */}
+            <div className="relative">
+              <img
+                src={heroImg}
+                alt="Football player celebrating"
+                className="w-full max-w-xs md:max-w-md h-auto object-cover"
+                draggable="false"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent rounded-lg"></div>
+            </div>
+          </motion.div>
         </div>
       </div>
 
-      {/* Video Modal */}
-      {showVideo && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
-          <div className="relative w-[90%] max-w-3xl">
-            <button
-              onClick={() => setShowVideo(false)}
-              className="absolute -top-10 right-0 text-white text-3xl font-bold hover:text-gray-300"
+      <motion.div
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 1.5 }}
+        className="relative z-10 px-4 md:px-8 pb-8 md:pb-12"
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="text-center sm:text-left">
+              <p className="text-lime-400 text-xs md:text-sm font-semibold mb-2">Next Match</p>
+              <h2 className="text-white text-xl md:text-3xl font-bold">
+                OUR BIGGEST CLASH
+                <br />
+                OF THE SEASON
+              </h2>
+            </div>
+            <Button
+              variant="outline"
+              className="border-white text-white hover:bg-white hover:text-black bg-transparent text-sm md:text-base"
             >
-              ×
-            </button>
-            <video
-              src={myVideo}
-              controls
-              autoPlay
-              className="w-full h-auto rounded-lg shadow-lg"
-            />
+              See All
+            </Button>
           </div>
         </div>
-      )}
-    </section>
+      </motion.div>
+
+      <AnimatePresence>
+        {isVideoModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            onClick={() => setIsVideoModalOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              className="relative bg-black rounded-lg overflow-hidden max-w-4xl w-full aspect-video"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Button
+                variant="ghost"
+                size="icon"
+                className="absolute top-4 right-4 text-white hover:bg-white/20 z-10"
+                onClick={() => setIsVideoModalOpen(false)}
+              >
+                <X className="w-6 h-6" />
+              </Button>
+              <video className="w-full h-full object-cover" controls autoPlay src={heroVid}>
+                Your browser does not support the video tag.
+              </video>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          animate={{
+            rotate: 360,
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "linear",
+          }}
+          className="absolute top-20 right-4 md:right-20 w-24 h-24 md:w-32 md:h-32 border border-white/10 rounded-full"
+        />
+        <motion.div
+          animate={{
+            rotate: -360,
+            scale: [1, 0.9, 1],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "linear",
+          }}
+          className="absolute bottom-20 left-4 md:left-20 w-20 h-20 md:w-24 md:h-24 border border-lime-400/20 rounded-full"
+        />
+      </div>
+    </div>
   )
 }
 

@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import Theme from './components/Theme';
@@ -11,7 +10,8 @@ import Footer from './components/Footer';
 import Register from './pages/Register';
 import Contact from './pages/Contact';
 import MeetTheCoach from './components/MeetTheCoach';
-import StreetSoccer from './components/StreetSoccer';
+import StreetSoccer from './pages/StreetSoccer';
+import Event from './components/Event';
 
 function App() {
   return (
@@ -21,20 +21,20 @@ function App() {
           <Routes>
             <Route path="/" element={
               <>
-                <Header />
                 <Hero />
+                <Event />
                 <About />
                 <Theme />
                 <MeetTheCoach />
                 <Program />
                 <Objectives />
                 <Rewards />
-                <StreetSoccer />
                 <Footer />
               </>
             } />
             <Route path="/register" element={<Register />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/street-soccer" element={<StreetSoccer /> } />
           </Routes>
         </AnimatePresence>
       </div>
