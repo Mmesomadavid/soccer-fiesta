@@ -51,8 +51,8 @@ const Hero = () => {
             <Link to="/" className="text-white/80 hover:text-white transition-colors text-sm lg:text-base">
               Homepage
             </Link>
-            <Link to="/schedule" className="text-white/80 hover:text-white transition-colors text-sm lg:text-base">
-              Match Schedule
+            <Link to="/street-soccer" className="text-white/80 hover:text-white transition-colors text-sm lg:text-base">
+              Street Soccer
             </Link>
             <Link to="/contact" className="text-white/80 hover:text-white transition-colors text-sm lg:text-base">
               Contact Us
