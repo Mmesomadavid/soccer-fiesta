@@ -126,30 +126,7 @@ const Hero = () => {
               UNLEASHING THE <span className="text-lime-400">FIRE</span> OF{" "}
               <span className="text-blue-400">FOOTBALL</span>
             </motion.h1>
-
-            {/* Professional Coach Section */}
-            <motion.div
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-              className="flex flex-col sm:flex-row items-center gap-4 mb-6 justify-center lg:justify-start"
-            >
-              <div className="flex -space-x-2">
-                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 border-2 border-white"></div>
-                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-r from-green-500 to-blue-500 border-2 border-white"></div>
-                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-r from-orange-500 to-red-500 border-2 border-white"></div>
-              </div>
-              <div className="text-center sm:text-left">
-                <div className="flex items-center gap-2 justify-center sm:justify-start">
-                  <span className="text-lime-400 text-xl md:text-2xl">5+</span>
-                  <span className="text-white font-semibold text-sm md:text-base">Professional Coach</span>
-                </div>
-                <p className="text-white/70 text-xs md:text-sm max-w-xs">
-                  With years of experience, our player brings a wealth of knowledge, strategy, and leadership
-                </p>
-              </div>
-            </motion.div>
-
+            
             {/* Description */}
             <motion.p
               initial={{ y: 30, opacity: 0 }}
@@ -225,12 +202,6 @@ const Hero = () => {
                 OF THE SEASON
               </h2>
             </div>
-            <Button
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-black bg-transparent text-sm md:text-base"
-            >
-              See All
-            </Button>
           </div>
         </div>
       </motion.div>
