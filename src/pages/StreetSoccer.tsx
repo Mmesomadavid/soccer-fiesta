@@ -4,7 +4,7 @@ import type React from "react"
 
 import { motion } from "framer-motion"
 import { useState } from "react"
-import { Play, Users, Trophy, Target, Clock, Upload } from "lucide-react"
+import { Play, Users, Trophy, Target, Clock, Upload, ArrowLeft } from "lucide-react"
 import streetSoccerImg1 from '../assets/street-soccer2.jpg'
 
 interface Player {
@@ -85,10 +85,10 @@ const StreetSoccer = () => {
       <header className="w-full bg-slate-800/80 backdrop-blur-md p-4 flex justify-between items-center">
         <h1 className="text-xl font-bold text-lime-400">Street Soccer</h1>
         <Link
-          href="/"
+          to="/"
           className="text-blue-300 hover:text-lime-400 font-medium transition-colors"
         >
-          ← Back to Home
+          <ArrowLeft /> Back to Home
         </Link>
       </header>
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
