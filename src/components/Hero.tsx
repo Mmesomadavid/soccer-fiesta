@@ -15,12 +15,10 @@ const Hero = () => {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 overflow-hidden">
-      {/* Stadium Background Image */}
+      {/* Stadium Background */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
-        style={{
-          backgroundImage: `url('/football-stadium-at-night-with-bright-lights-and-c.jpg')`,
-        }}
+        style={{ backgroundImage: `url('/football-stadium-at-night-with-bright-lights-and-c.jpg')` }}
       />
 
       {/* Header Navigation */}
@@ -46,16 +44,13 @@ const Hero = () => {
             <Logo />
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6 lg:gap-8">
-            <Link
-              to="/"
-              className="text-white/80 hover:text-white transition-colors text-sm lg:text-base"
-            >
-              Homepage
+          {/* Desktop Buttons – Join + Street Soccer side-by-side */}
+          <div className="hidden md:flex items-center gap-4 lg:gap-6">
+            <Link to="/register">
+              <Button className="bg-lime-400 text-black hover:bg-lime-300 font-semibold px-4 lg:px-6 text-sm lg:text-base">
+                Join Soccer Fiesta
+              </Button>
             </Link>
-
-            {/* 🔥 Highlighted Street Soccer Button */}
             <Link to="/street-soccer">
               <Button className="bg-lime-400 text-black hover:bg-lime-300 font-semibold px-4 lg:px-6 text-sm lg:text-base shadow-md">
                 Street Soccer
@@ -63,16 +58,7 @@ const Hero = () => {
             </Link>
           </div>
 
-          {/* Desktop CTA Button */}
-          <div className="hidden md:block">
-            <Link to="/register">
-              <Button className="bg-lime-400 text-black hover:bg-lime-300 font-semibold px-4 lg:px-6 text-sm lg:text-base">
-                Join Soccer Fiesta
-              </Button>
-            </Link>
-          </div>
-
-          {/* Mobile CTA Button */}
+          {/* Mobile CTA */}
           <div className="md:hidden">
             <Button className="bg-lime-400 text-black hover:bg-lime-300 font-semibold px-3 py-2 text-xs">
               Join
@@ -90,13 +76,6 @@ const Hero = () => {
               className="absolute top-full left-0 right-0 bg-slate-900/95 backdrop-blur-md border-t border-white/10 md:hidden z-30"
             >
               <div className="px-4 py-6 space-y-4">
-                <Link
-                  to="/"
-                  className="block text-white hover:text-lime-400 transition-colors py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Homepage
-                </Link>
                 <Link
                   to="/street-soccer"
                   className="block text-lime-400 font-semibold hover:text-lime-300 transition-colors py-2"
@@ -124,8 +103,7 @@ const Hero = () => {
         </AnimatePresence>
       </motion.header>
 
-      {/* ---------- Rest of your hero content (unchanged) ---------- */}
-      {/* Main Hero Content */}
+      {/* ---------- Main Hero Content ---------- */}
       <div className="relative z-10 flex items-center justify-center min-h-[80vh] px-4 md:px-8">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
@@ -151,7 +129,8 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.9 }}
               className="text-white/80 text-base md:text-lg mb-6 md:mb-8 max-w-lg mx-auto lg:mx-0"
             >
-              Every match, every goal, every moment ignites a fire that burns in the hearts of our players and fans alike.
+              Every match, every goal, every moment ignites a fire that burns in the hearts of our
+              players and fans alike.
             </motion.p>
 
             <motion.div
@@ -254,7 +233,7 @@ const Hero = () => {
         )}
       </AnimatePresence>
 
-      {/* Animated Background Elements */}
+      {/* Animated Background Circles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           animate={{ rotate: 360, scale: [1, 1.1, 1] }}
