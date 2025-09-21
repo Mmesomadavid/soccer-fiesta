@@ -83,11 +83,11 @@ const StreetSoccer = () => {
   return (
     <div className="bg-slate-900 text-white min-h-screen">
       {/* 🔹 HEADER with Back-to-Home link */}
-      <header className="w-full bg-slate-800/80 backdrop-blur-md p-4 flex justify-between items-center">
+      <header className="w-full bg-transparent flex justify-between items-center">
         <h1 className="text-xl font-bold text-lime-400">Street Soccer</h1>
         <Link
           to="/"
-          className="text-blue-300 hover:text-lime-400 font-medium transition-colors"
+          className="text-blue-300 flex items-center hover:text-lime-400 font-medium transition-colors"
         >
           <ArrowLeft /> Back to Home
         </Link>
