@@ -8,6 +8,7 @@ import { useState } from "react"
 import Logo from "./logo"
 import heroImg from "../assets/kick-ball.png"
 import heroVid from "../assets/vid/soccer-fiest-vid.mp4"
+import streetLogo from "../assets/street-soccer.png" // ✅ Street Soccer logo
 
 const Hero = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -15,13 +16,13 @@ const Hero = () => {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 overflow-hidden">
-      {/* Stadium Background */}
+      {/* Background */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
         style={{ backgroundImage: `url('/football-stadium-at-night-with-bright-lights-and-c.jpg')` }}
       />
 
-      {/* Header Navigation */}
+      {/* Header */}
       <motion.header
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -29,7 +30,7 @@ const Hero = () => {
         className="relative z-20 w-full"
       >
         <nav className="flex justify-between items-center px-4 md:px-8 py-6">
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Toggle */}
           <Button
             variant="ghost"
             size="icon"
@@ -39,36 +40,43 @@ const Hero = () => {
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </Button>
 
-          {/* Logo */}
+          {/* Main Logo */}
           <div className="flex-shrink-0">
             <Logo />
           </div>
 
-          {/* Desktop Buttons – Join + Street Soccer side-by-side */}
+          {/* Desktop Buttons */}
           <div className="hidden md:flex items-center gap-4 lg:gap-6">
             <Link to="/register">
-              <Button className="bg-lime-400 text-black hover:bg-lime-300 font-semibold px-4 lg:px-6 text-sm lg:text-base">
+              <Button className="bg-lime-400 text-black hover:bg-lime-300 font-bold px-4 lg:px-6 text-sm lg:text-base">
                 Join Soccer Fiesta
               </Button>
             </Link>
+
+            {/* ✅ Street Soccer button with embedded logo */}
             <Link to="/street-soccer">
-              <Button className="bg-lime-400 text-black hover:bg-lime-300 font-semibold px-4 lg:px-6 text-sm lg:text-base shadow-md">
+              <Button className="flex items-center gap-2 bg-lime-400 text-black hover:bg-lime-300 font-bold px-4 lg:px-6 text-sm lg:text-base shadow-md">
+                <img
+                  src={streetLogo}
+                  alt="Street Soccer Logo"
+                  className="w-6 h-6 md:w-8 md:h-8 object-contain"
+                />
                 Street Soccer
               </Button>
             </Link>
           </div>
 
-          {/* Mobile CTA */}
+          {/* Mobile quick Join */}
           <div className="md:hidden">
             <Link to="/register">
               <Button className="bg-lime-400 text-black hover:bg-lime-300 font-semibold px-3 py-2 text-xs">
-               Join Soccer fiesta
+                Join Soccer Fiesta
               </Button>
             </Link>
           </div>
         </nav>
 
-        {/* Mobile Navigation Drawer */}
+        {/* Mobile Drawer */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
@@ -79,22 +87,37 @@ const Hero = () => {
             >
               <div className="px-4 py-6 space-y-4">
                 <Link
-                  to="/street-soccer"
-                  className="block text-lime-400 font-semibold hover:text-lime-300 transition-colors py-2"
+                  to="/register"
+                  className="block text-lime-400 font-bold hover:text-lime-300 py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
+                  Join Soccer Fiesta
+                </Link>
+
+                {/* ✅ Mobile Street Soccer with logo inside button-like link */}
+                <Link
+                  to="/street-soccer"
+                  className="flex items-center gap-2 text-lime-400 font-bold hover:text-lime-300 py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <img
+                    src={streetLogo}
+                    alt="Street Soccer Logo"
+                    className="w-6 h-6 object-contain"
+                  />
                   Street Soccer
                 </Link>
+
                 <Link
                   to="/schedule"
-                  className="block text-white hover:text-lime-400 transition-colors py-2"
+                  className="block text-white hover:text-lime-400 py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Match Schedule
                 </Link>
                 <Link
                   to="/contact"
-                  className="block text-white hover:text-lime-400 transition-colors py-2"
+                  className="block text-white hover:text-lime-400 py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Contact Us
@@ -105,7 +128,7 @@ const Hero = () => {
         </AnimatePresence>
       </motion.header>
 
-      {/* ---------- Main Hero Content ---------- */}
+      {/* ---------- Hero Section ---------- */}
       <div className="relative z-10 flex items-center justify-center min-h-[80vh] px-4 md:px-8">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
@@ -181,27 +204,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Next Match Section */}
-      <motion.div
-        initial={{ y: 100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1.5 }}
-        className="relative z-10 px-4 md:px-8 pb-8 md:pb-12"
-      >
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="text-center sm:text-left">
-              <p className="text-lime-400 text-xs md:text-sm font-semibold mb-2">Next Match</p>
-              <h2 className="text-white text-xl md:text-3xl font-bold">
-                OUR BIGGEST CLASH
-                <br />
-                OF THE SEASON
-              </h2>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-
       {/* Video Modal */}
       <AnimatePresence>
         {isVideoModalOpen && (
@@ -234,20 +236,6 @@ const Hero = () => {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Animated Background Circles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          animate={{ rotate: 360, scale: [1, 1.1, 1] }}
-          transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-          className="absolute top-20 right-4 md:right-20 w-24 h-24 md:w-32 md:h-32 border border-white/10 rounded-full"
-        />
-        <motion.div
-          animate={{ rotate: -360, scale: [1, 0.9, 1] }}
-          transition={{ duration: 25, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-          className="absolute bottom-20 left-4 md:left-20 w-20 h-20 md:w-24 md:h-24 border border-lime-400/20 rounded-full"
-        />
-      </div>
     </div>
   )
 }
