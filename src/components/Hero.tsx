@@ -1,17 +1,16 @@
 "use client"
 
 import { Button } from "./ui/button"
-import { Play, Menu, X } from "lucide-react"
+import { Play, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Link } from "react-router-dom"
 import { useState } from "react"
 import Logo from "./logo"
 import heroImg from "../assets/kick-ball.png"
 import heroVid from "../assets/vid/soccer-fiest-vid.mp4"
-import streetLogo from "../assets/street-soccer.png" // ✅ Street Soccer logo
+import streetLogo from "../assets/street-soccer.png"
 
 const Hero = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
 
   return (
@@ -30,16 +29,6 @@ const Hero = () => {
         className="relative z-20 w-full"
       >
         <nav className="flex justify-between items-center px-4 md:px-8 py-6">
-          {/* Mobile Menu Toggle */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="text-white hover:bg-white/10 md:hidden"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </Button>
-
           {/* Main Logo */}
           <div className="flex-shrink-0">
             <Logo />
@@ -53,7 +42,6 @@ const Hero = () => {
               </Button>
             </Link>
 
-            {/* ✅ Street Soccer button with embedded logo */}
             <Link to="/street-soccer">
               <Button className="flex items-center gap-2 bg-lime-400 text-black hover:bg-lime-300 font-bold px-4 lg:px-6 text-sm lg:text-base shadow-md">
                 <img
@@ -66,66 +54,26 @@ const Hero = () => {
             </Link>
           </div>
 
-          {/* Mobile quick Join */}
-          <div className="md:hidden">
+          {/* ✅ Mobile quick buttons side by side */}
+          <div className="md:hidden flex gap-2">
             <Link to="/register">
               <Button className="bg-lime-400 text-black hover:bg-lime-300 font-semibold px-3 py-2 text-xs">
                 Join Soccer Fiesta
               </Button>
             </Link>
+
+            <Link to="/street-soccer">
+              <Button className="flex items-center gap-1 bg-lime-400 text-black hover:bg-lime-300 font-semibold px-3 py-2 text-xs">
+                <img
+                  src={streetLogo}
+                  alt="Street Soccer Logo"
+                  className="w-4 h-4 object-contain"
+                />
+                Street Soccer
+              </Button>
+            </Link>
           </div>
         </nav>
-
-        {/* Mobile Drawer */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="absolute top-full left-0 right-0 bg-slate-900/95 backdrop-blur-md border-t border-white/10 md:hidden z-30"
-            >
-              <div className="px-4 py-6 space-y-4">
-                <Link
-                  to="/register"
-                  className="block text-lime-400 font-bold hover:text-lime-300 py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Join Soccer Fiesta
-                </Link>
-
-                {/* ✅ Mobile Street Soccer with logo inside button-like link */}
-                <Link
-                  to="/street-soccer"
-                  className="flex items-center gap-2 text-lime-400 font-bold hover:text-lime-300 py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  <img
-                    src={streetLogo}
-                    alt="Street Soccer Logo"
-                    className="w-6 h-6 object-contain"
-                  />
-                  Street Soccer
-                </Link>
-
-                <Link
-                  to="/schedule"
-                  className="block text-white hover:text-lime-400 py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Match Schedule
-                </Link>
-                <Link
-                  to="/contact"
-                  className="block text-white hover:text-lime-400 py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Contact Us
-                </Link>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </motion.header>
 
       {/* ---------- Hero Section ---------- */}

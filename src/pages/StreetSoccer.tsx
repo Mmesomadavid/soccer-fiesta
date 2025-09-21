@@ -7,7 +7,8 @@ import { useState } from "react"
 import { Play, Users, Trophy, Target, Clock, Upload, ChevronLeft } from "lucide-react"
 import streetSoccerImg1 from '../assets/street-soccer2.jpg'
 import {Link} from 'react-router-dom';
-import Logo from '../components/logo.tsx'
+import streetLogo from "../assets/street-soccer.png"
+
 interface Player {
   name: string
   phone: string
@@ -84,7 +85,7 @@ const StreetSoccer = () => {
     <div className=" bg-gradient-to-r from-blue-900/90 via-blue-800/70 to-transparent text-white min-h-screen">
       {/* 🔹 HEADER with Back-to-Home link */}
       <header className="w-full  bg-gradient-to-r from-blue-900/90 via-blue-800/70 to-transparent flex justify-between items-center">
-        <Logo/>
+        <img src={streetLogo} alt="Street Soccer Logo"  className="w-28 h-28 object-contain" />
         <Link
           to="/"
           className="text-lime-500 flex items-center text-sm hover:text-lime-400 font-light transition-colors"
