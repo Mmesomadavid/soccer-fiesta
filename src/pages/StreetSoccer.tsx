@@ -4,7 +4,7 @@ import type React from "react"
 
 import { motion } from "framer-motion"
 import { useState } from "react"
-import { Play, Users, Trophy, Target, Clock, Upload, ArrowLeft } from "lucide-react"
+import { Play, Users, Trophy, Target, Clock, Upload, ChevronLeft } from "lucide-react"
 import streetSoccerImg1 from '../assets/street-soccer2.jpg'
 import {Link} from 'react-router-dom';
 import Logo from '../components/logo.tsx'
@@ -87,9 +87,9 @@ const StreetSoccer = () => {
         <Logo/>
         <Link
           to="/"
-          className="text-lime-500 flex items-center hover:text-lime-400 font-medium transition-colors"
+          className="text-lime-500 flex items-center text-sm hover:text-lime-400 font-light transition-colors"
         >
-          <ArrowLeft /> Back to Home
+          <ChevronLeft /> Back
         </Link>
       </header>
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
