@@ -6,6 +6,7 @@ import { motion } from "framer-motion"
 import { useState } from "react"
 import { Play, Users, Trophy, Target, Clock, Upload, ArrowLeft } from "lucide-react"
 import streetSoccerImg1 from '../assets/street-soccer2.jpg'
+import {Link} from 'react-router-dom';
 
 interface Player {
   name: string
