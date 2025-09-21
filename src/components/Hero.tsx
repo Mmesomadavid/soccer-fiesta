@@ -61,7 +61,7 @@ const Hero = () => {
           {/* Mobile CTA */}
           <div className="md:hidden">
             <Button className="bg-lime-400 text-black hover:bg-lime-300 font-semibold px-3 py-2 text-xs">
-              Join
+              Join Soccer fiesta
             </Button>
           </div>
         </nav>
