@@ -41,18 +41,25 @@ const Hero = () => {
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </Button>
 
-          {/* Logo - Always visible */}
+          {/* Logo */}
           <div className="flex-shrink-0">
             <Logo />
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6 lg:gap-8">
-            <Link to="/" className="text-white/80 hover:text-white transition-colors text-sm lg:text-base">
+            <Link
+              to="/"
+              className="text-white/80 hover:text-white transition-colors text-sm lg:text-base"
+            >
               Homepage
             </Link>
-            <Link to="/street-soccer" className="text-white/80 hover:text-white transition-colors text-sm lg:text-base">
-              Street Soccer
+
+            {/* 🔥 Highlighted Street Soccer Button */}
+            <Link to="/street-soccer">
+              <Button className="bg-lime-400 text-black hover:bg-lime-300 font-semibold px-4 lg:px-6 text-sm lg:text-base shadow-md">
+                Street Soccer
+              </Button>
             </Link>
           </div>
 
@@ -67,10 +74,13 @@ const Hero = () => {
 
           {/* Mobile CTA Button */}
           <div className="md:hidden">
-            <Button className="bg-lime-400 text-black hover:bg-lime-300 font-semibold px-3 py-2 text-xs">Join</Button>
+            <Button className="bg-lime-400 text-black hover:bg-lime-300 font-semibold px-3 py-2 text-xs">
+              Join
+            </Button>
           </div>
         </nav>
 
+        {/* Mobile Navigation Drawer */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
@@ -86,6 +96,13 @@ const Hero = () => {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Homepage
+                </Link>
+                <Link
+                  to="/street-soccer"
+                  className="block text-lime-400 font-semibold hover:text-lime-300 transition-colors py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Street Soccer
                 </Link>
                 <Link
                   to="/schedule"
@@ -107,6 +124,7 @@ const Hero = () => {
         </AnimatePresence>
       </motion.header>
 
+      {/* ---------- Rest of your hero content (unchanged) ---------- */}
       {/* Main Hero Content */}
       <div className="relative z-10 flex items-center justify-center min-h-[80vh] px-4 md:px-8">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -126,19 +144,16 @@ const Hero = () => {
               UNLEASHING THE <span className="text-lime-400">FIRE</span> OF{" "}
               <span className="text-blue-400">FOOTBALL</span>
             </motion.h1>
-            
-            {/* Description */}
+
             <motion.p
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.9 }}
               className="text-white/80 text-base md:text-lg mb-6 md:mb-8 max-w-lg mx-auto lg:mx-0"
             >
-              Every match, every goal, every moment ignites a fire that burns in the hearts of our players and fans
-              alike.
+              Every match, every goal, every moment ignites a fire that burns in the hearts of our players and fans alike.
             </motion.p>
 
-            {/* CTA Button */}
             <motion.div
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -150,7 +165,7 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Content - Player Image */}
+          {/* Right Content */}
           <motion.div
             initial={{ x: 100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -172,7 +187,6 @@ const Hero = () => {
               </Button>
             </motion.div>
 
-            {/* Player Image */}
             <div className="relative">
               <img
                 src={heroImg}
@@ -186,6 +200,7 @@ const Hero = () => {
         </div>
       </div>
 
+      {/* Next Match Section */}
       <motion.div
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -206,6 +221,7 @@ const Hero = () => {
         </div>
       </motion.div>
 
+      {/* Video Modal */}
       <AnimatePresence>
         {isVideoModalOpen && (
           <motion.div
@@ -241,27 +257,13 @@ const Hero = () => {
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          animate={{
-            rotate: 360,
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
+          animate={{ rotate: 360, scale: [1, 1.1, 1] }}
+          transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
           className="absolute top-20 right-4 md:right-20 w-24 h-24 md:w-32 md:h-32 border border-white/10 rounded-full"
         />
         <motion.div
-          animate={{
-            rotate: -360,
-            scale: [1, 0.9, 1],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
+          animate={{ rotate: -360, scale: [1, 0.9, 1] }}
+          transition={{ duration: 25, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
           className="absolute bottom-20 left-4 md:left-20 w-20 h-20 md:w-24 md:h-24 border border-lime-400/20 rounded-full"
         />
       </div>
