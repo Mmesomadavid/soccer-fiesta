@@ -81,13 +81,13 @@ const StreetSoccer = () => {
   ]
 
   return (
-    <div className="bg-none text-white min-h-screen">
+    <div className=" bg-gradient-to-r from-blue-900/90 via-blue-800/70 to-transparent text-white min-h-screen">
       {/* 🔹 HEADER with Back-to-Home link */}
-      <header className="w-full bg-none flex justify-between items-center">
+      <header className="w-full  bg-gradient-to-r from-blue-900/90 via-blue-800/70 to-transparent flex justify-between items-center">
         <Logo/>
         <Link
           to="/"
-          className="text-blue-300 flex items-center hover:text-lime-400 font-medium transition-colors"
+          className="text-lime-500 flex items-center hover:text-lime-400 font-medium transition-colors"
         >
           <ArrowLeft /> Back to Home
         </Link>
@@ -303,7 +303,7 @@ const StreetSoccer = () => {
 
             <div className="relative group overflow-hidden rounded-2xl">
               <img
-                src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNvY2NlcnxlbnwwfHwwfHx8MA%3D%3D"
+                src="https://media.istockphoto.com/id/157724371/photo/football-in-africa.jpg?s=612x612&w=0&k=20&c=-A1rzn4fJGdVWbGcZtJ8bfl8IVrsCH-xlf0GfMFx7TY="
                 alt="Street soccer action"
                 className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
               />
